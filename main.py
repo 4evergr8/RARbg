@@ -131,8 +131,18 @@ for name in names:
 
 
     # =================  无条件 w 模式写入 infohash.txt =================
+    # 新内容
+    new_content = links[0] + "\n" + "\n".join(infohashes) + "\n"
+
+    # 读取原内容（如果文件存在）
+    try:
+        with open(f"{name}.txt", "r", encoding="utf-8") as f:
+            original_content = f.read()
+    except FileNotFoundError:
+        original_content = ""
+
+    # 写入新内容 + 原内容
     with open(f"{name}.txt", "w", encoding="utf-8") as f:
-        f.write(links[0])
-        f.write("\n")
-        f.write("\n".join(infohashes))
-    print(f"\n已写入txt  共 {len(infohashes)} 条")
+        f.write(new_content + original_content)
+
+    print(f"\n已前面追加写入txt  共 {len(infohashes)} 条")
