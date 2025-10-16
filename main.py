@@ -36,7 +36,7 @@ for name in names:
     }
 
     while True:
-        url = f"https://rargb.to/search/{page}/?search={name}"
+        url = f"https://rargb.to/search/{page}/?search={name} -720p -480p -hevc"
         print(f"正在爬取第 {page} 页: {url}")
 
         # ====== 死循环重试机制 ======
