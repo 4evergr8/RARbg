@@ -6,15 +6,19 @@ import random
 
 
 names=[
-    "coco.lovelock",
-    "lexi.lore",
-    "kenzie.reeves",
-    "eva.elfie",
-    "reislin",
+
+
+
     "marica.haze",
     "lulu.chu",
     "lily.larimar",
-    "elle.lee"
+    "elle.lee",
+    "kenzie.reeves",
+
+    "reislin",
+    "eva.elfie",
+    "coco.lovelock",
+    "lexi.lore",
 
 
     
@@ -36,7 +40,7 @@ for name in names:
     }
 
     while True:
-        url = f"https://rargb.to/search/{page}/?search={name} -720p -480p -hevc"
+        url = f"https://rargb.to/search/{page}/?search={name} -720p -480p -hevc -sd"
         print(f"正在爬取第 {page} 页: {url}")
 
         # ====== 死循环重试机制 ======
