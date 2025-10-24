@@ -9,16 +9,18 @@ names=[
 
 
 
-    "marica.haze",
-    "lulu.chu",
-    "lily.larimar",
-    "elle.lee",
+
     "kenzie.reeves",
+
 
     "reislin",
     "eva.elfie",
     "coco.lovelock",
     "lexi.lore",
+    "marica.haze",
+    "lulu.chu",
+    "lily.larimar",
+    "elle.lee",
 
 
     
@@ -40,7 +42,8 @@ for name in names:
     }
 
     while True:
-        url = f"https://rargb.to/search/{page}/?search={name} -720p -480p -hevc -sd"
+        SKIP = False
+        url = f"https://rargb.to/search/{page}/?search={name} -720p -480p -hevc -sd -rq"
         print(f"正在爬取第 {page} 页: {url}")
 
         # ====== 死循环重试机制 ======
@@ -71,10 +74,14 @@ for name in names:
                 link = a_tag["href"]
                 full_link = "https://rargb.to" + link
                 if full_link == first_line:
+                    SKIP=True
                     break
                 links.append(full_link)
 
         print(f"第 {page} 页提取到 {len(rows)} 条链接")
+        if SKIP:
+            break
+
 
         # 随机延迟防封
         time.sleep(random.uniform(1, 3))
